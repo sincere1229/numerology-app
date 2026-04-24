@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>数秘術鑑定 | Twinkle Star Oracle</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Noto+Serif+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a0e1a;
+    --navy2: #0f1628;
+    --navy3: #1a2040;
+    --gold: #c9a84c;
+    --gold2: #e8c97a;
+    --gold3: #f5e0a0;
+    --white: #f0eadc;
+    --blur-color: rgba(10,14,26,0.85);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--navy);
+    color: var(--white);
+    font-family: 'Noto Serif JP', serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* 星空背景 */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: 
+      radial-gradient(ellipse at 20% 50%, rgba(100,80,200,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(180,140,60,0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 60% 80%, rgba(60,80,180,0.06) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .stars {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle var(--dur) ease-in-out infinite;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.3); }
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+
+  /* ヘッダー */
+  .header {
+    text-align: center;
+    margin-bottom: 50px;
+    animation: fadeDown 0.8s ease both;
+  }
+
+  .site-name {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    opacity: 0.8;
+  }
+
+  .title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(26px, 6vw, 38px);
+    color: var(--gold2);
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 30px rgba(201,168,76,0.3);
+  }
+
+  .subtitle {
+    font-size: 13px;
+    color: rgba(240,234,220,0.5);
+    letter-spacing: 2px;
+  }
+
+  .divider {
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 20px auto;
+  }
+
+  /* 入力カード */
+  .card {
+    background: linear-gradient(135deg, rgba(26,32,64,0.9), rgba(15,22,40,0.95));
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 16px;
+    padding: 40px 36px;
+    margin-bottom: 30px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4), inset 0 1px 0 rgba(201,168,76,0.1);
+    animation: fadeUp 0.8s ease 0.2s both;
+  }
+
+  .card-title {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    text-align: center;
+  }
+
+  .form-group {
+    margin-bottom: 24px;
+  }
+
+  label {
+    display: block;
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+
+  input[type="date"], input[type="text"] {
+    width: 100%;
+    background: rgba(10,14,26,0.6);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 8px;
+    padding: 14px 18px;
+    color: var(--white);
+    font-family: 'Noto Serif JP', serif;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  input[type="date"]:focus, input[type="text"]:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.1);
+  }
+
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.7) sepia(1) saturate(3) hue-rotate(5deg);
+    cursor: pointer;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #8a6a20, var(--gold), #8a6a20);
+    background-size: 200% 100%;
+    border: none;
+    border-radius: 8px;
+    color: var(--navy);
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    text-transform: uppercase;
+    margin-top: 8px;
+  }
+
+  .btn:hover {
+    background-position: 100% 0;
+    box-shadow: 0 8px 30px rgba(201,168,76,0.35);
+    transform: translateY(-1px);
+  }
+
+  .btn:active { transform: translateY(0); }
+
+  /* 結果エリア */
+  #result {
+    display: none;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  /* 運命数表示 */
+  .destiny-card {
+    background: linear-gradient(135deg, rgba(26,32,64,0.95), rgba(15,22,40,0.98));
+    border: 1px solid rgba(201,168,76,0.35);
+    border-radius: 16px;
+    padding: 40px 36px;
+    text-align: center;
+    margin-bottom: 24px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 80px rgba(201,168,76,0.05);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .destiny-card::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(ellipse at center, rgba(201,168,76,0.04) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .number-label {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    opacity: 0.8;
+  }
+
+  .big-number {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(80px, 20vw, 120px);
+    color: var(--gold2);
+    line-height: 1;
+    text-shadow: 0 0 40px rgba(201,168,76,0.4), 0 0 80px rgba(201,168,76,0.2);
+    margin-bottom: 16px;
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { text-shadow: 0 0 40px rgba(201,168,76,0.4), 0 0 80px rgba(201,168,76,0.2); }
+    50% { text-shadow: 0 0 60px rgba(201,168,76,0.6), 0 0 100px rgba(201,168,76,0.3); }
+  }
+
+  .number-name {
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    color: var(--gold3);
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+  }
+
+  .number-keyword {
+    font-size: 12px;
+    color: rgba(240,234,220,0.5);
+    letter-spacing: 2px;
+  }
+
+  /* 無料セクション */
+  .section {
+    background: linear-gradient(135deg, rgba(26,32,64,0.9), rgba(15,22,40,0.95));
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 16px;
+    padding: 36px;
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .section-text {
+    font-size: 14px;
+    line-height: 2;
+    color: rgba(240,234,220,0.85);
+  }
+
+  .trait-list {
+    list-style: none;
+    margin-top: 16px;
+  }
+
+  .trait-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(201,168,76,0.08);
+    font-size: 14px;
+    color: rgba(240,234,220,0.85);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .trait-list li::before {
+    content: '✦';
+    color: var(--gold);
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+
+  /* 有料ブロック */
+  .premium-block {
+    background: linear-gradient(135deg, rgba(26,32,64,0.9), rgba(15,22,40,0.95));
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 16px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .premium-header {
+    padding: 20px 36px;
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 3px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .premium-badge {
+    background: linear-gradient(135deg, var(--gold), #8a6a20);
+    color: var(--navy);
+    font-size: 9px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+  }
+
+  .premium-preview {
+    padding: 24px 36px;
+    position: relative;
+  }
+
+  .preview-text {
+    font-size: 14px;
+    line-height: 2;
+    color: rgba(240,234,220,0.4);
+    filter: blur(4px);
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .premium-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 0%, rgba(10,14,26,0.92) 60%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 24px;
+  }
+
+  .unlock-btn {
+    background: linear-gradient(135deg, rgba(201,168,76,0.15), rgba(201,168,76,0.05));
+    border: 1px solid rgba(201,168,76,0.5);
+    border-radius: 8px;
+    color: var(--gold2);
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    padding: 12px 28px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .unlock-btn:hover {
+    background: linear-gradient(135deg, rgba(201,168,76,0.25), rgba(201,168,76,0.1));
+    border-color: var(--gold);
+    box-shadow: 0 4px 20px rgba(201,168,76,0.2);
+  }
+
+  /* 総合鑑定バナー */
+  .bundle-banner {
+    background: linear-gradient(135deg, rgba(100,80,30,0.3), rgba(60,40,10,0.4));
+    border: 1px solid rgba(201,168,76,0.4);
+    border-radius: 16px;
+    padding: 36px;
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bundle-banner::before {
+    content: '✦ ✦ ✦';
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 8px;
+    opacity: 0.5;
+  }
+
+  .bundle-title {
+    font-family: 'Cinzel', serif;
+    font-size: 15px;
+    color: var(--gold2);
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+    margin-top: 16px;
+  }
+
+  .bundle-desc {
+    font-size: 13px;
+    color: rgba(240,234,220,0.6);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .bundle-price {
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .bundle-price span {
+    font-size: 12px;
+    color: rgba(240,234,220,0.5);
+    letter-spacing: 1px;
+  }
+
+  .bundle-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #8a6a20, var(--gold), #8a6a20);
+    background-size: 200% 100%;
+    border-radius: 8px;
+    color: var(--navy);
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 14px 36px;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    border: none;
+  }
+
+  .bundle-btn:hover {
+    background-position: 100% 0;
+    box-shadow: 0 8px 30px rgba(201,168,76,0.4);
+    transform: translateY(-1px);
+  }
+
+  /* フッター */
+  .footer {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .footer-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 4px;
+    opacity: 0.5;
+    margin-bottom: 8px;
+  }
+
+  .footer-text {
+    font-size: 11px;
+    color: rgba(240,234,220,0.25);
+    letter-spacing: 1px;
+  }
+
+  /* アニメーション */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* レスポンシブ */
+  @media (max-width: 480px) {
+    .card, .section, .destiny-card, .premium-block, .bundle-banner { padding: 28px 20px; }
+    .premium-header, .premium-preview { padding-left: 20px; padding-right: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+
+<div class="container">
+
+  <header class="header">
+    <div class="site-name">✦ Twinkle Star Oracle ✦</div>
+    <h1 class="title">数秘術鑑定</h1>
+    <div class="divider"></div>
+    <p class="subtitle">Numerology Reading</p>
+  </header>
+
+  <!-- 入力フォーム -->
+  <div class="card">
+    <div class="card-title">✦ あなたの情報を入力 ✦</div>
+    <div class="form-group">
+      <label>お名前（ニックネームでもOK）</label>
+      <input type="text" id="name" placeholder="例：さくら" />
+    </div>
+    <div class="form-group">
+      <label>生年月日</label>
+      <input type="date" id="birthdate" />
+    </div>
+    <button class="btn" onclick="calculate()">✦ 鑑定する ✦</button>
+  </div>
+
+  <!-- 結果 -->
+  <div id="result">
+
+    <div class="destiny-card">
+      <div class="number-label">Your Destiny Number</div>
+      <div class="big-number" id="destiny-num">1</div>
+      <div class="number-name" id="destiny-name">リーダー</div>
+      <div class="number-keyword" id="destiny-keyword">独立・創造・開拓</div>
+    </div>
+
+    <!-- 無料：基本性格 -->
+    <div class="section">
+      <div class="section-title">✦ 基本的な性格</div>
+      <p class="section-text" id="basic-desc"></p>
+      <ul class="trait-list" id="trait-list"></ul>
+    </div>
+
+    <!-- 無料：才能と使命 -->
+    <div class="section">
+      <div class="section-title">✦ あなたの才能と使命</div>
+      <p class="section-text" id="talent-desc"></p>
+    </div>
+
+    <!-- 有料：詳細な恋愛運 -->
+    <div class="premium-block">
+      <div class="premium-header">
+        ✦ 詳細な恋愛・対人運
+        <span class="premium-badge">PREMIUM</span>
+      </div>
+      <div class="premium-preview">
+        <p class="preview-text">あなたの恋愛パターンには独特の傾向があります。感情の深さと理性のバランスが鍵となり、特定の数字との相性が...</p>
+        <div class="premium-overlay">
+          <a href="#" class="unlock-btn">✦ 詳細鑑定を見る（¥500）</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 有料：今月の運勢 -->
+    <div class="premium-block">
+      <div class="premium-header">
+        ✦ 今月・今年の運勢予報
+        <span class="premium-badge">PREMIUM</span>
+      </div>
+      <div class="premium-preview">
+        <p class="preview-text">個人年数と個人月数から導く2024年のあなたの流れ。転機となる月と、最も力が発揮できる時期を...</p>
+        <div class="premium-overlay">
+          <a href="#" class="unlock-btn">✦ 詳細鑑定を見る（¥500）</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 有料：相性の良い数字 -->
+    <div class="premium-block">
+      <div class="premium-header">
+        ✦ 相性の良い数字・人物
+        <span class="premium-badge">PREMIUM</span>
+      </div>
+      <div class="premium-preview">
+        <p class="preview-text">数字ごとの相性を詳細に解説。ビジネスパートナー、恋愛、友人関係それぞれで最も良い組み合わせは...</p>
+        <div class="premium-overlay">
+          <a href="#" class="unlock-btn">✦ 詳細鑑定を見る（¥500）</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 総合鑑定バナー -->
+    <div class="bundle-banner">
+      <div class="bundle-title">✦ 総合鑑定パック ✦</div>
+      <p class="bundle-desc">数秘術 ＋ タロット ＋ バードオラクル<br>3つの視点からあなたの運命を深く読み解きます</p>
+      <div class="bundle-price">¥1,980 <span>（通常 ¥3,000）</span></div>
+      <button class="bundle-btn">✦ 総合鑑定を申し込む ✦</button>
+    </div>
+
+  </div><!-- /result -->
+
+  <footer class="footer">
+    <div class="footer-logo">✦ TWINKLE STAR ORACLE ✦</div>
+    <p class="footer-text">© 2024 Twinkle Lab. All rights reserved.</p>
+  </footer>
+
+</div>
+
+<script>
+// 星を生成
+(function() {
+  const container = document.getElementById('stars');
+  for (let i = 0; i < 80; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    const size = Math.random() * 2.5 + 0.5;
+    star.style.cssText = `
+      width: ${size}px;
+      height: ${size}px;
+      top: ${Math.random() * 100}%;
+      left: ${Math.random() * 100}%;
+      --dur: ${Math.random() * 4 + 2}s;
+      animation-delay: ${Math.random() * 4}s;
+      opacity: ${Math.random() * 0.5 + 0.1};
+    `;
+    container.appendChild(star);
+  }
+})();
+
+// 数秘術データ
+const numerologyData = {
+  1: {
+    name: 'リーダー',
+    keyword: '独立・創造・開拓',
+    basic: 'あなたは強い意志と独立心を持つ生まれながらのリーダーです。新しいことへの挑戦を恐れず、自分の道を切り開く力があります。個性が強く、人とは違うアプローチで問題を解決することが得意です。',
+    traits: ['強いリーダーシップと決断力', '創造力豊かで独創的なアイデア', '困難に負けない精神的な強さ', '自立心が高く主体的に行動する'],
+    talent: '0番の使命はパイオニアとして新しい道を示すことです。あなたが勇気を持って一歩踏み出すとき、多くの人があなたの後に続きます。自分を信じ、直感を大切にすることで本来の力が開花します。'
+  },
+  2: {
+    name: 'ハーモナイザー',
+    keyword: '協調・直感・愛情',
+    basic: 'あなたは繊細な感受性と深い共感力を持つ平和の使者です。人の気持ちを敏感に察知し、対立する物事の間に橋をかける調和の才能があります。細部への注意力と粘り強さも大きな強みです。',
+    traits: ['優れた共感力と思いやり', '繊細な感受性と直感力', 'チームワークと協力を大切にする', '平和と調和を生み出す力'],
+    talent: '2番の使命は人と人をつなぎ、愛と調和をもたらすことです。あなたの存在が場を和やかにし、人々に安らぎを与えます。サポートする力とチームを育てる才能が本来の輝きです。'
+  },
+  3: {
+    name: 'クリエイター',
+    keyword: '表現・喜び・コミュニケーション',
+    basic: 'あなたは明るい創造力とコミュニケーション力を持つ表現者です。言葉・芸術・音楽など様々な形で自分を表現する才能があります。その明るさと楽観主義は周囲の人々に喜びと活力を与えます。',
+    traits: ['豊かな想像力と創造性', '優れた表現力とコミュニケーション', '明るく前向きなエネルギー', '人を楽しませる天性の才能'],
+    talent: '3番の使命は喜びと美を世界に広めることです。あなたの表現が人々の心に灯をともします。自分の感性を信じ、遠慮なく表現することで本来の使命が輝き始めます。'
+  },
+  4: {
+    name: 'ビルダー',
+    keyword: '安定・秩序・勤勉',
+    basic: 'あなたは堅実で信頼性の高い現実的な建設者です。計画を立て、着実に目標に向かって進む能力があります。誠実さと責任感を持ち、周りの人から深く信頼される存在です。',
+    traits: ['高い信頼性と責任感', '粘り強く計画的に行動する', '実務能力と組織力の高さ', '誠実で約束を大切にする'],
+    talent: '4番の使命は安定した基盤を築き、未来に続く何かを残すことです。コツコツと積み上げる力があなたの最大の武器。長期的な視点で物事を捉えることで、大きな成果を生み出せます。'
+  },
+  5: {
+    name: 'アドベンチャラー',
+    keyword: '自由・変化・冒険',
+    basic: 'あなたは自由を愛し変化を楽しむ探求者です。好奇心旺盛で多才、様々な経験を通じて成長します。型にはまらない柔軟な思考と行動力で、多くの可能性の扉を開きます。',
+    traits: ['強い好奇心と探求心', '変化への適応力と柔軟性', '多才で幅広い才能を持つ', '自由な発想と行動力'],
+    talent: '5番の使命は経験を通じて自由の本当の意味を学び、世界を広げることです。数多くの出会いと体験があなたを豊かにし、その経験が人々への贈り物になります。'
+  },
+  6: {
+    name: 'ナーチャラー',
+    keyword: '愛・責任・奉仕',
+    basic: 'あなたは深い愛情と責任感を持つ癒しの存在です。家族や大切な人を守ることに喜びを感じ、面倒見の良さで周囲に安心感を与えます。美的センスと正義感も持ち合わせています。',
+    traits: ['深い愛情と思いやりの心', '強い責任感と面倒見の良さ', '優れた美的センス', '正義感と公平さを大切にする'],
+    talent: '6番の使命は愛と奉仕によって世界を美しくすることです。あなたが与える愛と温かさは、受け取った人の人生を変える力を持ちます。自分も含めて大切にすることが鍵です。'
+  },
+  7: {
+    name: 'シーカー',
+    keyword: '知恵・分析・内省',
+    basic: 'あなたは深い洞察力と知的探求心を持つ求道者です。物事の表面ではなく本質を見抜く力があります。一人で思索する時間を大切にし、独自の哲学と世界観を築いています。',
+    traits: ['鋭い分析力と洞察力', '深い内省と思索の力', '知識と真実への探求心', '独自の哲学と世界観'],
+    talent: '7番の使命は真理を探求し、その知恵を人々と分かち合うことです。あなたの深い洞察は多くの人が気づかない真実を照らし出します。内なる声を信じることが道を開きます。'
+  },
+  8: {
+    name: 'アバンダンサー',
+    keyword: '力・達成・豊かさ',
+    basic: 'あなたは強いエネルギーと野心を持つ実力者です。目標に向かって力強く進み、物質的・精神的な豊かさを手にする力があります。リーダーシップと実行力で大きな成果を生み出します。',
+    traits: ['強いリーダーシップと実行力', '目標達成への強い意志', 'ビジネスセンスと現実的な力', '豊かさを引き寄せるエネルギー'],
+    talent: '8番の使命は力と豊かさを体現し、それを善のために使うことです。あなたが成功することで多くの人の希望になります。与えることと受け取ることのバランスが鍵を握ります。'
+  },
+  9: {
+    name: 'ヒューマニスト',
+    keyword: '完成・奉仕・慈悲',
+    basic: 'あなたは広い視野と深い慈悲心を持つ完成者です。人類全体への愛と奉仕の精神を持ち、大きな視点で物事を見渡します。創造性と理想主義が高く、世界をより良くしたいという思いが強いです。',
+    traits: ['深い慈悲心と人道的な精神', '広い視野と理想主義', '豊かな創造性と表現力', '手放すことで広がる器の大きさ'],
+    talent: '9番の使命はすべてを包む愛で世界に奉仕することです。あなたの経験と感性は多くの人の共感を呼びます。執着を手放し、流れに乗ることで本来の光が放たれます。'
+  }
+};
+
+function calcDestiny(dateStr) {
+  const digits = dateStr.replace(/-/g, '').split('').map(Number);
+  let sum = digits.reduce((a, b) => a + b, 0);
+  while (sum > 9 && sum !== 11 && sum !== 22 && sum !== 33) {
+    sum = String(sum).split('').map(Number).reduce((a, b) => a + b, 0);
+  }
+  if (sum > 9) sum = sum % 9 || 9;
+  return sum;
+}
+
+function calculate() {
+  const name = document.getElementById('name').value.trim();
+  const birthdate = document.getElementById('birthdate').value;
+
+  if (!birthdate) {
+    alert('生年月日を入力してください');
+    return;
+  }
+
+  const num = calcDestiny(birthdate);
+  const data = numerologyData[num];
+
+  document.getElementById('destiny-num').textContent = num;
+  document.getElementById('destiny-name').textContent = data.name;
+  document.getElementById('destiny-keyword').textContent = data.keyword;
+  document.getElementById('basic-desc').textContent = data.basic;
+
+  const traitList = document.getElementById('trait-list');
+  traitList.innerHTML = data.traits.map(t => `<li>${t}</li>`).join('');
+
+  document.getElementById('talent-desc').textContent = data.talent;
+
+  const result = document.getElementById('result');
+  result.style.display = 'block';
+  result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+</script>
+</body>
+</html>
