@@ -543,50 +543,14 @@
       <ul class="trait-list" id="trait-list"></ul>
     </div>
 
-    <!-- 無料：才能と使命 -->
-    <div class="section">
+    <!-- 才能と使命：前半表示＋後半ぼかし＋LINE誘導 -->
+    <div class="section" style="position:relative;overflow:hidden;">
       <div class="section-title">✦ あなたの才能と使命</div>
-      <p class="section-text" id="talent-desc"></p>
-    </div>
-
-    <!-- 有料：詳細な恋愛運 -->
-    <div class="premium-block">
-      <div class="premium-header">
-        ✦ 詳細な恋愛・対人運
-        <span class="premium-badge">PREMIUM</span>
-      </div>
-      <div class="premium-preview">
-        <p class="preview-text">あなたの恋愛パターンには独特の傾向があります。感情の深さと理性のバランスが鍵となり、特定の数字との相性が...</p>
-        <div class="premium-overlay">
-          <a href="#" class="unlock-btn">✦ 詳細鑑定を見る（¥500）</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- 有料：今月の運勢 -->
-    <div class="premium-block">
-      <div class="premium-header">
-        ✦ 今月・今年の運勢予報
-        <span class="premium-badge">PREMIUM</span>
-      </div>
-      <div class="premium-preview">
-        <p class="preview-text">個人年数と個人月数から導く2024年のあなたの流れ。転機となる月と、最も力が発揮できる時期を...</p>
-        <div class="premium-overlay">
-          <a href="#" class="unlock-btn">✦ 詳細鑑定を見る（¥500）</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- 有料：相性の良い数字 -->
-    <div class="premium-block">
-      <div class="premium-header">
-        ✦ 相性の良い数字・人物
-        <span class="premium-badge">PREMIUM</span>
-      </div>
-      <div class="premium-preview">
-        <p class="preview-text">数字ごとの相性を詳細に解説。ビジネスパートナー、恋愛、友人関係それぞれで最も良い組み合わせは...</p>
-        <div class="premium-overlay">
-          <a href="#" class="unlock-btn">✦ 詳細鑑定を見る（¥500）</a>
+      <p class="section-text" id="talent-desc-free"></p>
+      <div style="position:relative;margin-top:12px;">
+        <p class="section-text" id="talent-desc-blur" style="filter:blur(5px);user-select:none;pointer-events:none;opacity:0.5;"></p>
+        <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 0%,rgba(10,14,26,0.97) 50%);display:flex;align-items:flex-end;justify-content:center;padding-bottom:16px;">
+          <a href="https://lin.ee/XHDFrA8" target="_blank" style="background:linear-gradient(135deg,rgba(201,168,76,0.15),rgba(201,168,76,0.05));border:1px solid rgba(201,168,76,0.5);border-radius:8px;color:#e8c97a;font-family:'Cinzel',serif;font-size:12px;letter-spacing:2px;padding:12px 24px;text-decoration:none;display:inline-block;">✦ 続きをLINEで受け取る（無料）</a>
         </div>
       </div>
     </div>
@@ -596,7 +560,7 @@
       <div class="bundle-title">✦ 総合鑑定パック ✦</div>
       <p class="bundle-desc">数秘術 ＋ タロット ＋ バードオラクル<br>3つの視点からあなたの運命を深く読み解きます</p>
       <div class="bundle-price">¥1,980 <span>（通常 ¥3,000）</span></div>
-      <button class="bundle-btn">✦ 総合鑑定を申し込む ✦</button>
+      <a href="https://lin.ee/XHDFrA8" target="_blank" class="bundle-btn">✦ 総合鑑定を申し込む ✦</a>
     </div>
 
   </div><!-- /result -->
@@ -726,7 +690,8 @@ function calculate() {
   const traitList = document.getElementById('trait-list');
   traitList.innerHTML = data.traits.map(t => `<li>${t}</li>`).join('');
 
-  document.getElementById('talent-desc').textContent = data.talent;
+  document.getElementById('talent-desc-free').textContent = data.talent.substring(0, Math.floor(data.talent.length / 2));
+  document.getElementById('talent-desc-blur').textContent = data.talent.substring(Math.floor(data.talent.length / 2));
 
   const result = document.getElementById('result');
   result.style.display = 'block';
