@@ -58,21 +58,39 @@
   .trait-list li { padding: 10px 0; border-bottom: 1px solid rgba(201,168,76,0.08); font-size: 14px; color: rgba(240,234,220,0.85); display: flex; align-items: center; gap: 10px; }
   .trait-list li::before { content: '✦'; color: var(--gold); font-size: 10px; flex-shrink: 0; }
 
+  /* ★ 前世接続ブロック */
+  .pastlife-block { background: linear-gradient(135deg, rgba(20,30,60,0.95), rgba(10,15,35,0.98)); border: 1px solid rgba(127,212,196,0.25); border-radius: 16px; padding: 24px; margin-bottom: 20px; }
+  .pastlife-label { font-family: 'Cinzel', serif; font-size: 10px; color: #7fd4c4; letter-spacing: 3px; margin-bottom: 12px; opacity: 0.8; }
+  .pastlife-flow { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+  .pastlife-box { background: rgba(127,212,196,0.1); border: 1px solid rgba(127,212,196,0.3); border-radius: 10px; padding: 10px 16px; text-align: center; }
+  .pastlife-box-label { font-size: 10px; color: rgba(127,212,196,0.6); margin-bottom: 4px; }
+  .pastlife-box-val { font-size: 13px; color: #a8ece0; font-weight: 500; }
+  .pastlife-arrow { font-size: 18px; color: rgba(201,168,76,0.5); }
+  .pastlife-desc { font-size: 13px; color: rgba(240,234,220,0.6); line-height: 1.8; text-align: center; }
+
+  /* ★ シェアボタン */
+  .share-section { background: linear-gradient(135deg, rgba(26,32,64,0.9), rgba(15,22,40,0.95)); border: 1px solid rgba(201,168,76,0.2); border-radius: 16px; padding: 24px 28px; margin-bottom: 20px; text-align: center; }
+  .share-section-title { font-family: 'Cinzel', serif; font-size: 11px; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; opacity: 0.8; }
+  .share-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+  .share-btn { display: inline-flex; align-items: center; gap: 6px; border: none; border-radius: 10px; font-family: 'Noto Serif JP', serif; font-size: 13px; font-weight: 700; padding: 12px 18px; cursor: pointer; transition: all 0.2s; text-decoration: none; }
+  .share-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+  .share-btn.x-btn { background: #000; color: #fff; }
+  .share-btn.line-btn { background: #06c755; color: #fff; }
+  .share-btn.insta-btn { background: linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); color: #fff; }
+  .share-btn.tiktok-btn { background: #010101; color: #fff; }
+  .share-btn svg { width: 16px; height: 16px; fill: currentColor; flex-shrink: 0; }
+  /* トースト */
+  .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(20px); background: rgba(201,168,76,0.95); color: var(--navy); font-size: 13px; font-weight: 700; padding: 12px 24px; border-radius: 30px; opacity: 0; pointer-events: none; transition: all 0.3s; z-index: 999; white-space: nowrap; }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
   /* ★ 手相ナッジ */
   .teso-nudge { background: linear-gradient(135deg, rgba(232,160,192,0.12), rgba(180,100,160,0.06)); border: 1px solid rgba(232,160,192,0.25); border-radius: 16px; padding: 24px; margin-bottom: 20px; text-align: center; }
   .teso-nudge-title { font-size: 14px; color: rgba(240,234,220,0.9); font-weight: 600; margin-bottom: 10px; line-height: 1.7; }
   .teso-nudge-body { font-size: 12px; color: rgba(240,234,220,0.6); line-height: 2; margin-bottom: 16px; }
-  .teso-nudge-btn { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg,#06c755,#04a844); border: none; border-radius: 10px; color: #fff; font-size: 14px; font-weight: 700; padding: 14px 28px; text-decoration: none; transition: all 0.2s; }
-  .teso-nudge-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(6,199,85,0.4); }
+  .teso-nudge-btn { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg,#c4a8f0,#9b7fd4); border: none; border-radius: 10px; color: #fff; font-size: 14px; font-weight: 700; padding: 14px 28px; text-decoration: none; transition: all 0.2s; }
+  .teso-nudge-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(155,127,212,0.4); }
 
-  /* LINE導線 */
-  .line-block { background: linear-gradient(135deg, rgba(0,185,0,0.12), rgba(0,150,0,0.08)); border: 1px solid rgba(0,200,100,0.3); border-radius: 16px; padding: 24px; margin-bottom: 20px; text-align: center; }
-  .line-block-title { font-size: 13px; color: rgba(240,234,220,0.7); line-height: 1.8; margin-bottom: 14px; }
-  .line-block-title strong { color: #4ede88; display: block; font-size: 15px; margin-bottom: 4px; }
-  .line-btn { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg,#06c755,#04a844); border: none; border-radius: 10px; color: #fff; font-size: 14px; font-weight: 700; padding: 14px 28px; text-decoration: none; transition: all 0.2s; }
-  .line-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(6,199,85,0.4); }
-
-  /* ★ AI総合鑑定（統一版） */
+  /* ★ AI総合鑑定 */
   .bundle-banner { background: linear-gradient(135deg, rgba(100,80,30,0.3), rgba(60,40,10,0.4)); border: 1px solid rgba(201,168,76,0.4); border-radius: 16px; padding: 32px; text-align: center; margin-bottom: 20px; }
   .bundle-label { font-family: 'Cinzel', serif; font-size: 10px; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; opacity: 0.8; }
   .bundle-title { font-family: 'Cinzel', serif; font-size: 16px; color: var(--gold2); letter-spacing: 2px; margin-bottom: 10px; }
@@ -82,16 +100,6 @@
   .bundle-price-sub { font-size: 11px; color: rgba(240,234,220,0.4); margin-bottom: 20px; }
   .bundle-btn { display: inline-block; background: linear-gradient(135deg, #8a6a20, var(--gold), #8a6a20); background-size: 200% 100%; border-radius: 8px; color: var(--navy); font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; padding: 14px 36px; text-decoration: none; transition: all 0.4s; border: none; cursor: pointer; }
   .bundle-btn:hover { background-position: 100% 0; box-shadow: 0 8px 30px rgba(201,168,76,0.4); transform: translateY(-1px); }
-
-  /* 前世接続ブロック */
-  .pastlife-block { background: linear-gradient(135deg, rgba(20,30,60,0.95), rgba(10,15,35,0.98)); border: 1px solid rgba(127,212,196,0.25); border-radius: 16px; padding: 24px; margin-bottom: 20px; }
-  .pastlife-label { font-family: 'Cinzel', serif; font-size: 10px; color: #7fd4c4; letter-spacing: 3px; margin-bottom: 12px; opacity: 0.8; }
-  .pastlife-flow { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
-  .pastlife-box { background: rgba(127,212,196,0.1); border: 1px solid rgba(127,212,196,0.3); border-radius: 10px; padding: 10px 16px; text-align: center; }
-  .pastlife-box-label { font-size: 10px; color: rgba(127,212,196,0.6); margin-bottom: 4px; }
-  .pastlife-box-val { font-size: 13px; color: #a8ece0; font-weight: 500; }
-  .pastlife-arrow { font-size: 18px; color: rgba(201,168,76,0.5); }
-  .pastlife-desc { font-size: 13px; color: rgba(240,234,220,0.6); line-height: 1.8; text-align: center; }
 
   .rec-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .rec-card { background: rgba(10,14,26,0.5); border: 1px solid rgba(201,168,76,0.15); border-radius: 10px; padding: 14px 10px; text-align: center; text-decoration: none; transition: all 0.3s; display: block; }
@@ -115,6 +123,9 @@
   <div style="font-family:Cinzel,serif;font-size:12px;color:#c9a84c;letter-spacing:2px;text-align:center;">✦ Twinkle Star Oracle ✦</div>
   <a href="https://twinkle-lab.jp/star/sogo" style="font-size:11px;color:rgba(201,168,76,0.7);text-decoration:none;letter-spacing:1px;">完全鑑定</a>
 </div>
+
+<!-- トースト -->
+<div class="toast" id="js-toast"></div>
 
 <div class="stars" id="stars"></div>
 <div class="container">
@@ -141,7 +152,6 @@
 
   <div id="result">
 
-    <!-- 運命数 -->
     <div class="destiny-card">
       <div class="number-label">Your Destiny Number</div>
       <div class="big-number" id="destiny-num">1</div>
@@ -149,26 +159,22 @@
       <div class="number-keyword" id="destiny-keyword">独立・創造・開拓</div>
     </div>
 
-    <!-- 使命バナー -->
     <div class="mission-banner">
       <div class="mission-label">✦ YOUR LIFE MISSION ✦</div>
       <div class="mission-text" id="mission-text">あなたは〇〇するために生まれてきました</div>
     </div>
 
-    <!-- 基本性格（全文表示） -->
     <div class="section">
       <div class="section-title">✦ 基本的な性格</div>
       <p class="section-text" id="basic-desc"></p>
       <ul class="trait-list" id="trait-list"></ul>
     </div>
 
-    <!-- 才能と使命（全文表示） -->
     <div class="section">
       <div class="section-title">✦ あなたの才能と使命</div>
       <p class="section-text" id="talent-desc"></p>
     </div>
 
-    <!-- 前世接続ブロック -->
     <div class="pastlife-block">
       <div class="pastlife-label">✦ PAST LIFE CONNECTION ✦</div>
       <div style="font-size:13px;color:rgba(240,234,220,0.7);margin-bottom:14px;text-align:center;">前世の魂の記憶が今世の数秘術に現れています</div>
@@ -194,7 +200,30 @@
       </div>
     </div>
 
-    <!-- ★ 手相ナッジ -->
+    <!-- ★ シェアボタン -->
+    <div class="share-section">
+      <div class="share-section-title">✦ Share Your Number ✦</div>
+      <div class="share-buttons">
+        <button class="share-btn x-btn" id="js-share-x">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.63L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+          Xでシェア
+        </button>
+        <button class="share-btn line-btn" id="js-share-line">
+          <svg viewBox="0 0 24 24"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.348 0 .63.285.63.63 0 .349-.282.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+          LINEで送る
+        </button>
+        <button class="share-btn insta-btn" id="js-share-insta">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          Instaにコピー
+        </button>
+        <button class="share-btn tiktok-btn" id="js-share-tiktok">
+          <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          TikTokにコピー
+        </button>
+      </div>
+    </div>
+
+    <!-- ★ 手相ナッジ（紫ボタン） -->
     <div class="teso-nudge">
       <div class="teso-nudge-title">🤲 より詳しく知りたい方へ</div>
       <div class="teso-nudge-body">
@@ -203,23 +232,12 @@
         無料手相診断では、左手と右手から<br/>
         本来の自分と今の状態を読み解きます。
       </div>
-      <a href="https://lin.ee/XHDFrA8" class="teso-nudge-btn" target="_blank" rel="noopener">
-        💬 LINEで無料手相診断を受ける
+      <a href="https://twinkle-lab.jp/star/tesou-free" class="teso-nudge-btn" target="_blank" rel="noopener">
+        🤲 無料手相診断を受ける
       </a>
     </div>
 
-    <!-- LINE導線 -->
-    <div class="line-block">
-      <div class="line-block-title">
-        <strong>🎁 LINE登録で特典を受け取る</strong>
-        開運情報・限定占いをLINEでお届けします
-      </div>
-      <a href="https://lin.ee/XHDFrA8" class="line-btn" target="_blank" rel="noopener">
-        💬 LINEで登録する（無料）
-      </a>
-    </div>
-
-    <!-- ★ AI総合鑑定（統一文言） -->
+    <!-- ★ AI総合鑑定 -->
     <div class="bundle-banner">
       <div class="bundle-label">✦ Premium · AI完全解析 ✦</div>
       <div class="bundle-title">AI総合鑑定（手相＋複数占術）</div>
@@ -229,11 +247,10 @@
       </div>
       <div class="bundle-price-orig">通常¥4,980相当</div>
       <div class="bundle-price">¥3,980</div>
-      <div class="bundle-price-sub">鑑定結果はLINEでお届け · PDF送付</div>
+      <div class="bundle-price-sub">鑑定結果はPDFでお届け</div>
       <a href="https://twinkle-lab.jp/star/sogo" class="bundle-btn">✦ AI総合鑑定を申し込む ✦</a>
     </div>
 
-    <!-- 回遊導線 -->
     <div style="background:linear-gradient(135deg,rgba(26,32,64,0.85),rgba(15,22,40,0.9));border:1px solid rgba(201,168,76,0.18);border-radius:16px;padding:24px;margin-bottom:20px;">
       <div style="font-family:'Cinzel',serif;font-size:11px;color:#c9a84c;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;text-align:center;">✦ あなたにおすすめの占い ✦</div>
       <div class="rec-grid">
@@ -283,80 +300,27 @@
   }
 })();
 
+function showToast(msg) {
+  const t = document.getElementById('js-toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
+
 const numerologyData = {
-  1: {
-    name: 'リーダー', keyword: '独立・創造・開拓',
-    mission: 'あなたは「新しい道を切り開き、人々を導く」ために生まれてきました',
-    pastlifeDesc: '前世で培った強い意志と勇気が、今世の「1」として現れています。魂はすでに多くの挑戦を経験し、今世でその力を最大限に発揮する準備ができています。',
-    basic: 'あなたは強い意志と独立心を持つ生まれながらのリーダーです。新しいことへの挑戦を恐れず、自分の道を切り開く力があります。',
-    traits: ['強いリーダーシップと決断力', '創造力豊かで独創的なアイデア', '困難に負けない精神的な強さ', '自立心が高く主体的に行動する'],
-    talent: '1番の使命はパイオニアとして新しい道を示すことです。あなたが勇気を持って一歩踏み出すとき、多くの人があなたの後に続きます。自分を信じ、直感を大切にすることで本来の力が開花します。',
-  },
-  2: {
-    name: 'ハーモナイザー', keyword: '協調・直感・愛情',
-    mission: 'あなたは「愛と調和で人と人をつなぎ、世界に平和をもたらす」ために生まれてきました',
-    pastlifeDesc: '前世での奉仕と協調の経験が、今世の「2」として現れています。魂は深い共感力と愛をすでに持っており、今世でその才能を開花させる時が来ています。',
-    basic: 'あなたは繊細な感受性と深い共感力を持つ平和の使者です。人の気持ちを敏感に察知し、対立する物事の間に橋をかける調和の才能があります。',
-    traits: ['優れた共感力と思いやり', '繊細な感受性と直感力', 'チームワークと協力を大切にする', '平和と調和を生み出す力'],
-    talent: '2番の使命は人と人をつなぎ、愛と調和をもたらすことです。あなたの存在が場を和やかにし、人々に安らぎを与えます。',
-  },
-  3: {
-    name: 'クリエイター', keyword: '表現・喜び・コミュニケーション',
-    mission: 'あなたは「喜びと美を表現することで、世界に光をもたらす」ために生まれてきました',
-    pastlifeDesc: '前世での芸術・表現・喜びの追求が、今世の「3」として現れています。魂はすでに表現の喜びを知っており、今世でその才能を世界と分かち合う使命があります。',
-    basic: 'あなたは明るい創造力とコミュニケーション力を持つ表現者です。言葉・芸術・音楽など様々な形で自分を表現する才能があります。',
-    traits: ['豊かな想像力と創造性', '優れた表現力とコミュニケーション', '明るく前向きなエネルギー', '人を楽しませる天性の才能'],
-    talent: '3番の使命は喜びと美を世界に広めることです。あなたの表現が人々の心に灯をともします。自分の感性を信じ、遠慮なく表現することで本来の使命が輝き始めます。',
-  },
-  4: {
-    name: 'ビルダー', keyword: '安定・秩序・勤勉',
-    mission: 'あなたは「揺るぎない基盤を築き、未来の世代に豊かさを残す」ために生まれてきました',
-    pastlifeDesc: '前世での誠実な積み重ねと建設の経験が、今世の「4」として現れています。魂は長期的な視点と忍耐力を持ち、今世で大きな遺産を残す使命があります。',
-    basic: 'あなたは堅実で信頼性の高い現実的な建設者です。計画を立て、着実に目標に向かって進む能力があります。',
-    traits: ['高い信頼性と責任感', '粘り強く計画的に行動する', '実務能力と組織力の高さ', '誠実で約束を大切にする'],
-    talent: '4番の使命は安定した基盤を築き、未来に続く何かを残すことです。コツコツと積み上げる力があなたの最大の武器。長期的な視点で物事を捉えることで、大きな成果を生み出せます。',
-  },
-  5: {
-    name: 'アドベンチャラー', keyword: '自由・変化・冒険',
-    mission: 'あなたは「多様な経験を通じて自由の本質を学び、世界に新しい可能性を示す」ために生まれてきました',
-    pastlifeDesc: '前世での旅と冒険、多様な経験が今世の「5」として現れています。魂はすでに多くの文化と人々と出会い、その経験を今世で人々に伝える使命があります。',
-    basic: 'あなたは自由を愛し変化を楽しむ探求者です。好奇心旺盛で多才、様々な経験を通じて成長します。',
-    traits: ['強い好奇心と探求心', '変化への適応力と柔軟性', '多才で幅広い才能を持つ', '自由な発想と行動力'],
-    talent: '5番の使命は経験を通じて自由の本当の意味を学び、世界を広げることです。数多くの出会いと体験があなたを豊かにし、その経験が人々への贈り物になります。',
-  },
-  6: {
-    name: 'ナーチャラー', keyword: '愛・責任・奉仕',
-    mission: 'あなたは「愛と美で世界を包み込み、すべての命を育む」ために生まれてきました',
-    pastlifeDesc: '前世での献身的な愛と奉仕が、今世の「6」として現れています。魂はすでに深い愛の意味を知っており、今世でその愛をより広い範囲に広げる使命があります。',
-    basic: 'あなたは深い愛情と責任感を持つ癒しの存在です。家族や大切な人を守ることに喜びを感じ、面倒見の良さで周囲に安心感を与えます。',
-    traits: ['深い愛情と思いやりの心', '強い責任感と面倒見の良さ', '優れた美的センス', '正義感と公平さを大切にする'],
-    talent: '6番の使命は愛と奉仕によって世界を美しくすることです。あなたが与える愛と温かさは、受け取った人の人生を変える力を持ちます。',
-  },
-  7: {
-    name: 'シーカー', keyword: '知恵・分析・内省',
-    mission: 'あなたは「真理を探求し、その深い知恵で人々の目を覚まさせる」ために生まれてきました',
-    pastlifeDesc: '前世での深い探求と孤独な思索が、今世の「7」として現れています。魂はすでに多くの真理を発見しており、今世でその知恵を必要とする人々と分かち合う使命があります。',
-    basic: 'あなたは深い洞察力と知的探求心を持つ求道者です。物事の表面ではなく本質を見抜く力があります。',
-    traits: ['鋭い分析力と洞察力', '深い内省と思索の力', '知識と真実への探求心', '独自の哲学と世界観'],
-    talent: '7番の使命は真理を探求し、その知恵を人々と分かち合うことです。あなたの深い洞察は多くの人が気づかない真実を照らし出します。',
-  },
-  8: {
-    name: 'アバンダンサー', keyword: '力・達成・豊かさ',
-    mission: 'あなたは「力と豊かさを体現し、それを善のために使って世界を変える」ために生まれてきました',
-    pastlifeDesc: '前世での権力・富・リーダーシップの経験が、今世の「8」として現れています。魂は成功と失敗の両方を知っており、今世でその経験を最善の形で活かす使命があります。',
-    basic: 'あなたは強いエネルギーと野心を持つ実力者です。目標に向かって力強く進み、物質的・精神的な豊かさを手にする力があります。',
-    traits: ['強いリーダーシップと実行力', '目標達成への強い意志', 'ビジネスセンスと現実的な力', '豊かさを引き寄せるエネルギー'],
-    talent: '8番の使命は力と豊かさを体現し、それを善のために使うことです。あなたが成功することで多くの人の希望になります。',
-  },
-  9: {
-    name: 'ヒューマニスト', keyword: '完成・奉仕・慈悲',
-    mission: 'あなたは「すべてを包む愛で人類に奉仕し、世界をより美しい場所にする」ために生まれてきました',
-    pastlifeDesc: '前世での多くの経験と奉仕が、今世の「9」として集大成されています。魂は長い魂の旅の中で最も多くの学びを積んでおり、今世でその完成した愛を世界に還す使命があります。',
-    basic: 'あなたは広い視野と深い慈悲心を持つ完成者です。人類全体への愛と奉仕の精神を持ち、大きな視点で物事を見渡します。',
-    traits: ['深い慈悲心と人道的な精神', '広い視野と理想主義', '豊かな創造性と表現力', '手放すことで広がる器の大きさ'],
-    talent: '9番の使命はすべてを包む愛で世界に奉仕することです。あなたの経験と感性は多くの人の共感を呼びます。執着を手放し、流れに乗ることで本来の光が放たれます。',
-  }
+  1: { name:'リーダー', keyword:'独立・創造・開拓', mission:'あなたは「新しい道を切り開き、人々を導く」ために生まれてきました', pastlifeDesc:'前世で培った強い意志と勇気が、今世の「1」として現れています。魂はすでに多くの挑戦を経験し、今世でその力を最大限に発揮する準備ができています。', basic:'あなたは強い意志と独立心を持つ生まれながらのリーダーです。新しいことへの挑戦を恐れず、自分の道を切り開く力があります。', traits:['強いリーダーシップと決断力','創造力豊かで独創的なアイデア','困難に負けない精神的な強さ','自立心が高く主体的に行動する'], talent:'1番の使命はパイオニアとして新しい道を示すことです。あなたが勇気を持って一歩踏み出すとき、多くの人があなたの後に続きます。自分を信じ、直感を大切にすることで本来の力が開花します。' },
+  2: { name:'ハーモナイザー', keyword:'協調・直感・愛情', mission:'あなたは「愛と調和で人と人をつなぎ、世界に平和をもたらす」ために生まれてきました', pastlifeDesc:'前世での奉仕と協調の経験が、今世の「2」として現れています。魂は深い共感力と愛をすでに持っており、今世でその才能を開花させる時が来ています。', basic:'あなたは繊細な感受性と深い共感力を持つ平和の使者です。人の気持ちを敏感に察知し、対立する物事の間に橋をかける調和の才能があります。', traits:['優れた共感力と思いやり','繊細な感受性と直感力','チームワークと協力を大切にする','平和と調和を生み出す力'], talent:'2番の使命は人と人をつなぎ、愛と調和をもたらすことです。あなたの存在が場を和やかにし、人々に安らぎを与えます。' },
+  3: { name:'クリエイター', keyword:'表現・喜び・コミュニケーション', mission:'あなたは「喜びと美を表現することで、世界に光をもたらす」ために生まれてきました', pastlifeDesc:'前世での芸術・表現・喜びの追求が、今世の「3」として現れています。魂はすでに表現の喜びを知っており、今世でその才能を世界と分かち合う使命があります。', basic:'あなたは明るい創造力とコミュニケーション力を持つ表現者です。言葉・芸術・音楽など様々な形で自分を表現する才能があります。', traits:['豊かな想像力と創造性','優れた表現力とコミュニケーション','明るく前向きなエネルギー','人を楽しませる天性の才能'], talent:'3番の使命は喜びと美を世界に広めることです。あなたの表現が人々の心に灯をともします。自分の感性を信じ、遠慮なく表現することで本来の使命が輝き始めます。' },
+  4: { name:'ビルダー', keyword:'安定・秩序・勤勉', mission:'あなたは「揺るぎない基盤を築き、未来の世代に豊かさを残す」ために生まれてきました', pastlifeDesc:'前世での誠実な積み重ねと建設の経験が、今世の「4」として現れています。魂は長期的な視点と忍耐力を持ち、今世で大きな遺産を残す使命があります。', basic:'あなたは堅実で信頼性の高い現実的な建設者です。計画を立て、着実に目標に向かって進む能力があります。', traits:['高い信頼性と責任感','粘り強く計画的に行動する','実務能力と組織力の高さ','誠実で約束を大切にする'], talent:'4番の使命は安定した基盤を築き、未来に続く何かを残すことです。コツコツと積み上げる力があなたの最大の武器。長期的な視点で物事を捉えることで、大きな成果を生み出せます。' },
+  5: { name:'アドベンチャラー', keyword:'自由・変化・冒険', mission:'あなたは「多様な経験を通じて自由の本質を学び、世界に新しい可能性を示す」ために生まれてきました', pastlifeDesc:'前世での旅と冒険、多様な経験が今世の「5」として現れています。魂はすでに多くの文化と人々と出会い、その経験を今世で人々に伝える使命があります。', basic:'あなたは自由を愛し変化を楽しむ探求者です。好奇心旺盛で多才、様々な経験を通じて成長します。', traits:['強い好奇心と探求心','変化への適応力と柔軟性','多才で幅広い才能を持つ','自由な発想と行動力'], talent:'5番の使命は経験を通じて自由の本当の意味を学び、世界を広げることです。数多くの出会いと体験があなたを豊かにし、その経験が人々への贈り物になります。' },
+  6: { name:'ナーチャラー', keyword:'愛・責任・奉仕', mission:'あなたは「愛と美で世界を包み込み、すべての命を育む」ために生まれてきました', pastlifeDesc:'前世での献身的な愛と奉仕が、今世の「6」として現れています。魂はすでに深い愛の意味を知っており、今世でその愛をより広い範囲に広げる使命があります。', basic:'あなたは深い愛情と責任感を持つ癒しの存在です。家族や大切な人を守ることに喜びを感じ、面倒見の良さで周囲に安心感を与えます。', traits:['深い愛情と思いやりの心','強い責任感と面倒見の良さ','優れた美的センス','正義感と公平さを大切にする'], talent:'6番の使命は愛と奉仕によって世界を美しくすることです。あなたが与える愛と温かさは、受け取った人の人生を変える力を持ちます。' },
+  7: { name:'シーカー', keyword:'知恵・分析・内省', mission:'あなたは「真理を探求し、その深い知恵で人々の目を覚まさせる」ために生まれてきました', pastlifeDesc:'前世での深い探求と孤独な思索が、今世の「7」として現れています。魂はすでに多くの真理を発見しており、今世でその知恵を必要とする人々と分かち合う使命があります。', basic:'あなたは深い洞察力と知的探求心を持つ求道者です。物事の表面ではなく本質を見抜く力があります。', traits:['鋭い分析力と洞察力','深い内省と思索の力','知識と真実への探求心','独自の哲学と世界観'], talent:'7番の使命は真理を探求し、その知恵を人々と分かち合うことです。あなたの深い洞察は多くの人が気づかない真実を照らし出します。' },
+  8: { name:'アバンダンサー', keyword:'力・達成・豊かさ', mission:'あなたは「力と豊かさを体現し、それを善のために使って世界を変える」ために生まれてきました', pastlifeDesc:'前世での権力・富・リーダーシップの経験が、今世の「8」として現れています。魂は成功と失敗の両方を知っており、今世でその経験を最善の形で活かす使命があります。', basic:'あなたは強いエネルギーと野心を持つ実力者です。目標に向かって力強く進み、物質的・精神的な豊かさを手にする力があります。', traits:['強いリーダーシップと実行力','目標達成への強い意志','ビジネスセンスと現実的な力','豊かさを引き寄せるエネルギー'], talent:'8番の使命は力と豊かさを体現し、それを善のために使うことです。あなたが成功することで多くの人の希望になります。' },
+  9: { name:'ヒューマニスト', keyword:'完成・奉仕・慈悲', mission:'あなたは「すべてを包む愛で人類に奉仕し、世界をより美しい場所にする」ために生まれてきました', pastlifeDesc:'前世での多くの経験と奉仕が、今世の「9」として集大成されています。魂は長い魂の旅の中で最も多くの学びを積んでおり、今世でその完成した愛を世界に還す使命があります。', basic:'あなたは広い視野と深い慈悲心を持つ完成者です。人類全体への愛と奉仕の精神を持ち、大きな視点で物事を見渡します。', traits:['深い慈悲心と人道的な精神','広い視野と理想主義','豊かな創造性と表現力','手放すことで広がる器の大きさ'], talent:'9番の使命はすべてを包む愛で世界に奉仕することです。あなたの経験と感性は多くの人の共感を呼びます。執着を手放し、流れに乗ることで本来の光が放たれます。' }
 };
+
+let currentNum = null;
+let currentData = null;
 
 function calcDestiny(dateStr) {
   const digits = dateStr.replace(/-/g, '').split('').map(Number);
@@ -369,24 +333,22 @@ function calcDestiny(dateStr) {
 }
 
 function calculate() {
-  const name = document.getElementById('name').value.trim();
+  const name = document.getElementById('name').value.trim() || 'あなた';
   const birthdate = document.getElementById('birthdate').value;
   if (!birthdate) { alert('生年月日を入力してください'); return; }
 
   const num = calcDestiny(birthdate);
   const data = numerologyData[num];
+  currentNum = num;
+  currentData = data;
 
   document.getElementById('destiny-num').textContent = num;
   document.getElementById('destiny-name').textContent = data.name;
   document.getElementById('destiny-keyword').textContent = data.keyword;
   document.getElementById('mission-text').textContent = data.mission;
   document.getElementById('basic-desc').textContent = data.basic;
-
-  const traitList = document.getElementById('trait-list');
-  traitList.innerHTML = data.traits.map(t => `<li>${t}</li>`).join('');
-
+  document.getElementById('trait-list').innerHTML = data.traits.map(t => `<li>${t}</li>`).join('');
   document.getElementById('talent-desc').textContent = data.talent;
-
   document.getElementById('pastlife-destiny').textContent = `運命数${num}の使命`;
   document.getElementById('pastlife-desc').textContent = data.pastlifeDesc;
 
@@ -394,6 +356,29 @@ function calculate() {
   result.style.display = 'block';
   result.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
+
+// ★ シェアボタン
+function getShareText() {
+  if (!currentData) return '';
+  return `【数秘術鑑定】運命数「${currentNum}」${currentData.name}\n${currentData.mission}\n特質：${currentData.traits.slice(0,2).join('・')}\n\n✦ Twinkle Star Oracleで数秘術鑑定を試してみよう\nhttps://numerology-app-lovat.vercel.app`;
+}
+
+document.getElementById('js-share-x').addEventListener('click', function() {
+  window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(getShareText()), '_blank');
+});
+document.getElementById('js-share-line').addEventListener('click', function() {
+  window.open('https://social-plugins.line.me/lineit/share?url=' + encodeURIComponent('https://numerology-app-lovat.vercel.app') + '&text=' + encodeURIComponent(getShareText()), '_blank');
+});
+document.getElementById('js-share-insta').addEventListener('click', function() {
+  navigator.clipboard.writeText(getShareText()).then(function() {
+    showToast('📋 コピーしました！Instagramに投稿してね♪');
+  }).catch(function() { showToast('URLをコピーしてInstagramに投稿してね♪'); });
+});
+document.getElementById('js-share-tiktok').addEventListener('click', function() {
+  navigator.clipboard.writeText(getShareText()).then(function() {
+    showToast('📋 コピーしました！TikTokに投稿してね♪');
+  }).catch(function() { showToast('URLをコピーしてTikTokに投稿してね♪'); });
+});
 </script>
 </body>
 </html>
